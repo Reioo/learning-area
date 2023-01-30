@@ -26,11 +26,41 @@
 
   </body>
   <script>
-    let bandInfo;
+    let bandInfo = '';
 
     // Add your code here
-
-
+    function Band(name, nationality, genre, members, formed, 
+    split, albums) {
+      this.name = name,
+      this.nationality = nationality,
+      this.genre = genre,
+      this.members = members,
+      this.formed = formed,
+      this.split = split,
+      this.albums = albums;     
+    }
+    function introduceSelf(band) {
+      let isSplit;
+      if (band.split == false) {
+        isSplit = 'is currently together';
+      } else {
+        isSplit = `was split in ${band.split}`;
+      }
+      let introduction = `The band is called ${band.name}. It's from 
+      ${band.nationality} and it's main genre is ${band.genre}. 
+      There are ${band.members} members in this band and it was formed
+      in ${band.formed}. The band ` + isSplit + `. ${band.name} two most 
+      popular albums are ${band.albums[0]} and ${band.albums[1]}.`;
+      return introduction;
+    }
+    const redhot = new Band('Red Hot Chilli Peppers', 'USA',
+     'rock', 4, 1982, false,['By the Way', 'Stadium Arcadium']);
+    
+     const bastille = new Band('Bastille', 'England', 'pop rock', 
+     4, 2010, false, ['Bad Blood', 'All This Bad Blood'])
+    bandInfo += introduceSelf(redhot);
+    bandInfo += introduceSelf(bastille);
+    
     // Don't edit the code below here!
 
     const section = document.querySelector('section');
